@@ -5,6 +5,7 @@ import { Tooltip } from "react-tooltip";
 
 const Headers = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const handleSignOut = () => {
     logOut().then().then();
   };
@@ -31,7 +32,7 @@ const Headers = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 max-w-7xl mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -66,13 +67,15 @@ const Headers = () => {
         {user ? (
           <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content={user.email}
+            data-tooltip-content={user.displayName}
             data-tooltip-place="top"
           >
-            <button onClick={handleSignOut} className="btn">
-              {" "}
-              Sign Out
-            </button>
+            <div className="mr-2">
+              <img
+                className="rounded-full w-11 h-11 object-fill"
+                src={user.photoURL}
+              />
+            </div>
             <Tooltip id="my-tooltip" />
           </a>
         ) : (
@@ -80,6 +83,10 @@ const Headers = () => {
             Log In
           </Link>
         )}
+        <button onClick={handleSignOut} className="btn">
+          {" "}
+          Sign Out
+        </button>
       </div>
     </div>
   );

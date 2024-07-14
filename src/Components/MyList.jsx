@@ -45,7 +45,7 @@ const MyList = () => {
               <td>{spot.country}</td>
               <td>{spot.cost}</td>
               <Link to={`/touristspots/id/${spot._id}`}>
-                <td className="">EDIT</td>
+                <td className="btn  mr-16">EDIT</td>
               </Link>
               <td
                 onClick={() => handleDelete(spot._id)}

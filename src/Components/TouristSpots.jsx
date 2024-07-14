@@ -1,15 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import SpotCard from "./SpotCard";
-import { AuthContext } from "../Provider/AuthProvider";
 
 const TouristSpots = () => {
-  const { user } = useContext(AuthContext);
   const [spots, setSpots] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/touristspots/email/${user?.email}`)
+    fetch("http://localhost:5000/touristspots/email/rifatul564@gmail.com")
       .then((res) => res.json())
       .then((data) => setSpots(data));
-  }, [user?.email]);
+  }, []);
   return (
     <div>
       <h2>Tourist Spots : {spots.length}</h2>

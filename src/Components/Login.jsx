@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const [showPass, setShowPass] = useState(false);
   const { signInUser, googleLogin, githubLogin } = useContext(AuthContext);
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -42,17 +45,23 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
               />
+              <span
+                onClick={() => setShowPass(!showPass)}
+                className="absolute bottom-11 right-3 text-2xl"
+              >
+                {showPass ? <FaEye /> : <FaEyeSlash />}
+              </span>
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
@@ -78,6 +87,12 @@ const Login = () => {
                 Github Sign In
               </button>
             </div>
+            <p className="text-center mt-5">
+              New to this site?
+              <Link className="text-blue-500 font-semibold" to="/Register">
+                Register
+              </Link>
+            </p>
           </form>
         </div>
       </div>

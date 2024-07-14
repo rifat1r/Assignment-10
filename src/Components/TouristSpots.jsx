@@ -13,13 +13,13 @@ const TouristSpots = () => {
       <h2 className="text-center mt-10 text-5xl font-semibold ">
         Top Tourist Spots in Southeast Asia
       </h2>
-      <p className="text-center text-xl mb-3 mt-4">
+      <p className="text-center text-gray-400 text-xl mb-3 mt-4">
         Join us on a journey through the heart of Southeast Asia. Our featured
         tourist spots highlight the region's incredible diversity, <br />
         from bustling cities to serene natural landscapes
       </p>
 
-      <div className="w-[600px] mx-auto mb-10">
+      <div className="w-[400px] md:w-[600px] mx-auto mb-10">
         <hr />
         <hr />
         <hr />

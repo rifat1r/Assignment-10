@@ -9,7 +9,7 @@ const AllSpots = () => {
         <h2 className="text-4xl font-semibold">
           Journey Through South Asia's Best Tourist Spots
         </h2>
-        <p className="text-2xl mt-3 text-gray-600 font-medium mb-3">
+        <p className="text-2xl mt-3 text-gray-400 font-medium mb-3">
           Curated by Our Community of Travelers
         </p>
 

@@ -16,6 +16,31 @@ const Register = () => {
     const password = e.target.password.value;
     const name = e.target.name.value;
     const photo = e.target.photo.value;
+    if (password.length < 6) {
+      return Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "Password must be atleast six character",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } else if (!/[A-Z]/.test(password)) {
+      return Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "Password must have an uppercase character",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } else if (!/[a-z]/.test(password)) {
+      return Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "Password must have an lowercase character",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
     createUser(email, password)
       .then((result) => {
         console.log(result.user);

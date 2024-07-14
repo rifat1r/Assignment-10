@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateSpot = () => {
   const spot = useLoaderData();
@@ -54,10 +55,34 @@ const UpdateSpot = () => {
       body: JSON.stringify(newSpot),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Spot Updated Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
   return (
     <div className="">
+      <div className="text-center my-6">
+        <h2 className="text-4xl font-semibold">
+          Edit Tourist Spot Information
+        </h2>
+        <p className="text-2xl mt-3 text-gray-400">
+          Keep your tourist spot information up-to-date and accurate
+        </p>
+      </div>
+      <div className="w-[600px] mx-auto mb-10">
+        <hr />
+        <hr />
+        <hr />
+      </div>
       <form onSubmit={handleUpdateSpot}>
         <div className="flex justify-center gap-5 ">
           <label className="form-control max-w-lg w-full">
@@ -126,14 +151,13 @@ const UpdateSpot = () => {
           </label>
           <label className="form-control max-w-lg   w-full ">
             <div className="label">
-              <span className="label-text">average_cost</span>
+              <span className="label-text">Average Cost</span>
             </div>
             <input
               type="text"
               defaultValue={cost}
               name="cost"
-              placeholder="average_cost
-"
+              placeholder="Average Cost"
               className="input input-bordered w-full max-w-lg"
             />
           </label>
@@ -190,10 +214,10 @@ const UpdateSpot = () => {
             />
           </label>
         </div>
-        <div className="w-full">
+        <div className="max-w-[1043px] mx-auto ">
           <label
             className="form-control
-           w-full"
+          "
           >
             <div className="label">
               <span className="label-text">Photo URL</span>
@@ -203,14 +227,13 @@ const UpdateSpot = () => {
               name="photo"
               defaultValue={photo}
               placeholder="Photo URL"
-              className="input input-bordered w-full "
+              className="input input-bordered  "
+              required
             />
           </label>
         </div>
-        <div>
-          <button className="btn btn-block mt-8 btn-secondary">
-            Update Spot
-          </button>
+        <div className="max-w-[1043px] mx-auto">
+          <button className="btn w-full mt-8 btn-secondary">Update Spot</button>
         </div>
       </form>
     </div>

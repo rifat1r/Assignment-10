@@ -53,6 +53,19 @@ const AddTouristSpots = () => {
   };
   return (
     <div className="">
+      <h2 className="text-center text-4xl font-semibold mt-5 mb-2">
+        {" "}
+        Contribute a Tourist Destination
+      </h2>
+      <p className="text-center text-xl text-gray-600 mb-2">
+        Join Our Community of Travel Enthusiasts and Share Your Experiences
+      </p>
+
+      <div className="w-[600px] mx-auto mb-7 mt-3">
+        <hr />
+        <hr />
+        <hr />
+      </div>
       <form onSubmit={handleAddSpot}>
         <div className="flex justify-center gap-5 ">
           <label className="form-control max-w-lg w-full">
@@ -121,13 +134,12 @@ const AddTouristSpots = () => {
           </label>
           <label className="form-control max-w-lg   w-full ">
             <div className="label">
-              <span className="label-text">average_cost</span>
+              <span className="label-text">Average Cost</span>
             </div>
             <input
               type="text"
               name="cost"
-              placeholder="average_cost
-"
+              placeholder="Average Cost"
               className="input input-bordered w-full max-w-lg"
               required
             />

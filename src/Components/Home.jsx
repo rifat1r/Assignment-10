@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Slides from "./Slides";
 import TouristSpots from "./TouristSpots";
 

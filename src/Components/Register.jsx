@@ -1,14 +1,17 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
+  const navigate = useNavigate();
   const { createUser } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
+    const form = e.target;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const name = e.target.name.value;
@@ -24,8 +27,26 @@ const Register = () => {
             .then((result) => console.log(result))
             .catch((error) => console.log(error.message));
         }
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Registered Successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate("/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        form.reset();
+      });
   };
   return (
     <div className="hero bg-base-200 min-h-screen ">
@@ -84,15 +105,10 @@ const Register = () => {
               />
               <span
                 onClick={() => setShowPass(!showPass)}
-                className="absolute bottom-11 right-3 text-2xl"
+                className="absolute bottom-3 right-3 text-2xl"
               >
                 {showPass ? <FaEye /> : <FaEyeSlash />}
               </span>
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>

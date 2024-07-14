@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const AddTouristSpots = () => {
+  const navigate = useNavigate();
   const handleAddSpot = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -35,7 +39,17 @@ const AddTouristSpots = () => {
       body: JSON.stringify(newSpot),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Your Tourist Spot Has Been Added Successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate("/");
+      });
   };
   return (
     <div className="">
@@ -50,6 +64,7 @@ const AddTouristSpots = () => {
               name="country"
               placeholder="Country"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
           <label className="form-control max-w-lg  w-full ">
@@ -61,6 +76,7 @@ const AddTouristSpots = () => {
               name="spotName"
               placeholder="Tourist Spot Name"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
         </div>
@@ -74,6 +90,7 @@ const AddTouristSpots = () => {
               name="totalVisitors"
               placeholder="Total Visitors Per Year"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
           <label className="form-control max-w-lg   w-full ">
@@ -85,6 +102,7 @@ const AddTouristSpots = () => {
               name="location"
               placeholder="Location"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
         </div>
@@ -98,6 +116,7 @@ const AddTouristSpots = () => {
               name="description"
               placeholder="Short Description"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
           <label className="form-control max-w-lg   w-full ">
@@ -110,6 +129,7 @@ const AddTouristSpots = () => {
               placeholder="average_cost
 "
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
         </div>
@@ -123,6 +143,7 @@ const AddTouristSpots = () => {
               name="seasonality"
               placeholder="seasonality "
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
           <label className="form-control max-w-lg   w-full ">
@@ -134,6 +155,7 @@ const AddTouristSpots = () => {
               name="travelTime"
               placeholder="Travel Time"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
         </div>
@@ -147,6 +169,7 @@ const AddTouristSpots = () => {
               name="email"
               placeholder="User Email"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
           <label className="form-control max-w-lg   w-full ">
@@ -158,13 +181,14 @@ const AddTouristSpots = () => {
               name="name"
               placeholder="User Name"
               className="input input-bordered w-full max-w-lg"
+              required
             />
           </label>
         </div>
-        <div className="w-full">
+        <div className="max-w-[1043px] mx-auto ">
           <label
             className="form-control
-           w-full"
+          "
           >
             <div className="label">
               <span className="label-text">Photo URL</span>
@@ -173,12 +197,13 @@ const AddTouristSpots = () => {
               type="text"
               name="photo"
               placeholder="Photo URL"
-              className="input input-bordered w-full "
+              className="input input-bordered  "
+              required
             />
           </label>
         </div>
-        <div>
-          <button className="btn btn-block mt-8 btn-secondary">Add Spot</button>
+        <div className="max-w-[1043px] mx-auto">
+          <button className="btn w-full mt-8 btn-secondary">Add Spot</button>
         </div>
       </form>
     </div>

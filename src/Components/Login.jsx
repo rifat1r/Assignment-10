@@ -1,35 +1,96 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+
   const { signInUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     signInUser(email, password)
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error));
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Logged In Successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
   };
   const handleGoogleLogIn = () => {
     googleLogin()
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error));
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Logged In Successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
   };
   const handleGithubLogin = () => {
     githubLogin()
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error));
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Logged In Successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col ">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold mb-5">Please Login now!</h1>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleLogIn} className="card-body">
@@ -58,15 +119,10 @@ const Login = () => {
               />
               <span
                 onClick={() => setShowPass(!showPass)}
-                className="absolute bottom-11 right-3 text-2xl"
+                className="absolute bottom-3 right-3 text-2xl"
               >
                 {showPass ? <FaEye /> : <FaEyeSlash />}
               </span>
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>

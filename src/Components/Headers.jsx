@@ -17,12 +17,16 @@ const Headers = () => {
       <li>
         <NavLink to="/allspots">All Tourists Spots</NavLink>
       </li>
-      <li>
-        <NavLink to="/addspot">Add Tourist Spot</NavLink>
-      </li>
-      <li>
-        <NavLink to="/mylist">My List</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/addspot">Add Tourist Spot</NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink to="/mylist">My List</NavLink>
+        </li>
+      )}
       <li>
         <NavLink to="/register">Register</NavLink>
       </li>
@@ -70,11 +74,15 @@ const Headers = () => {
             data-tooltip-content={user.displayName}
             data-tooltip-place="top"
           >
-            <div className="mr-2">
+            <div className="mr-2 flex gap-2">
               <img
                 className="rounded-full w-11 h-11 object-fill"
                 src={user.photoURL}
               />
+              <button onClick={handleSignOut} className="btn">
+                {" "}
+                Sign Out
+              </button>
             </div>
             <Tooltip id="my-tooltip" />
           </a>
@@ -83,10 +91,6 @@ const Headers = () => {
             Log In
           </Link>
         )}
-        <button onClick={handleSignOut} className="btn">
-          {" "}
-          Sign Out
-        </button>
       </div>
     </div>
   );

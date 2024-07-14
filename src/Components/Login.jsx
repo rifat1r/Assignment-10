@@ -1,13 +1,24 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleLogin, githubLogin } = useContext(AuthContext);
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     signInUser(email, password)
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error));
+  };
+  const handleGoogleLogIn = () => {
+    googleLogin()
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error));
+  };
+  const handleGithubLogin = () => {
+    githubLogin()
       .then((result) => console.log(result.user))
       .catch((error) => console.log(error));
   };
@@ -50,6 +61,22 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
+            </div>
+            <div className="flex gap-2 mt-6">
+              <button onClick={handleGoogleLogIn} className="btn ">
+                {" "}
+                <span className="text-xl">
+                  <FaGoogle />
+                </span>
+                Google Sign In
+              </button>
+              <button onClick={handleGithubLogin} className="btn ">
+                {" "}
+                <span className="text-xl">
+                  <FaGithub />
+                </span>
+                Github Sign In
+              </button>
             </div>
           </form>
         </div>

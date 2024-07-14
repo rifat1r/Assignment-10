@@ -4,7 +4,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 
 const Headers = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut().then().then();
+  };
   const links = (
     <>
       <li>
@@ -66,7 +69,10 @@ const Headers = () => {
             data-tooltip-content={user.email}
             data-tooltip-place="top"
           >
-            <button className="btn"> Sign Out</button>
+            <button onClick={handleSignOut} className="btn">
+              {" "}
+              Sign Out
+            </button>
             <Tooltip id="my-tooltip" />
           </a>
         ) : (

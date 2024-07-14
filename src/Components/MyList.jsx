@@ -1,17 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
   const [spots, setSpots] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/touristspots/${user.email}`)
+    fetch(`http://localhost:5000/touristspots/email/${user.email}`)
       .then((res) => res.json())
       .then((data) => setSpots(data));
   }, [user.email]);
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/touristspots/${id}`, {
+    fetch(`http://localhost:5000/touristspots/id/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -43,7 +44,9 @@ const MyList = () => {
               <td>{spot.spotName}</td>
               <td>{spot.country}</td>
               <td>{spot.cost}</td>
-              <td className="">EDIT</td>
+              <Link to={`/touristspots/id/${spot._id}`}>
+                <td className="">EDIT</td>
+              </Link>
               <td
                 onClick={() => handleDelete(spot._id)}
                 className="btn btn-error text-white"

@@ -6,10 +6,10 @@ const TouristSpots = () => {
   const { user } = useContext(AuthContext);
   const [spots, setSpots] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/touristspots/${user.email}`)
+    fetch(`http://localhost:5000/touristspots/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setSpots(data));
-  }, [user.email]);
+  }, [user?.email]);
   return (
     <div>
       <h2>Tourist Spots : {spots.length}</h2>

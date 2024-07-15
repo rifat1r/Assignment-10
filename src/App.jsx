@@ -5,8 +5,10 @@ import Footer from "./Components/Footer";
 const App = () => {
   return (
     <div>
-      <Headers></Headers>
-      <Outlet></Outlet>
+      <div className="max-w-7xl mx-auto">
+        <Headers></Headers>
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );

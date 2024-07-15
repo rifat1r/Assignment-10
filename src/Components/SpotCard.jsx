@@ -42,14 +42,14 @@ const SpotCard = ({ spot }) => {
         <div>
           <p className="text-gray-500  text-lg">{description}</p>
         </div>
-        <div className="flex justify-end gap-3 mr-10 mt-3 -mb-7 py-5">
-          <span className="bg-orange-500 px-4 py-0 text-white opacity-80 rounded-xl">
-            {cost}
-          </span>
-          <span className="bg-orange-500 px-4 py-0 text-white opacity-80 rounded-xl">
-            {seasonality}
-          </span>
-        </div>
+      </div>
+      <div className="flex justify-end gap-3 mr-10 mt-3 mb-0 py-5">
+        <span className="bg-orange-500 px-4 py-0 text-white opacity-80 rounded-xl">
+          {cost}
+        </span>
+        <span className="bg-orange-500 px-4 py-0 text-white opacity-80 rounded-xl">
+          {seasonality}
+        </span>
       </div>
     </div>
   );

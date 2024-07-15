@@ -10,7 +10,7 @@ const Slides = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     adaptiveHeight: true,
@@ -29,7 +29,7 @@ const Slides = () => {
           key={slide._id}
         >
           <img
-            className="md:w-full lg:w-2/3 h-[500px] mx-auto object-center rounded-xl"
+            className="md:w-full  h-[500px] mx-auto object-center rounded-xl"
             src={slide.photo}
           />
           <div className="absolute text-white opacity-80 top-32 space-y-0 md:space-y-3 md:right-[250px] lg:right-[720px] text-center w-[450px]">

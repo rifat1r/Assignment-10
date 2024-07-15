@@ -17,7 +17,9 @@ const Slides = () => {
   };
   const [slides, setSlides] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/touristspots/email/rifatul564@gmail.com")
+    fetch(
+      "https://assignment-10-server-eight-gold.vercel.app/touristspots/email/rifatul564@gmail.com"
+    )
       .then((res) => res.json())
       .then((data) => setSlides(data));
   }, []);
@@ -32,7 +34,7 @@ const Slides = () => {
             className="md:w-full  h-[500px] mx-auto object-center rounded-xl"
             src={slide.photo}
           />
-          <div className="absolute text-white opacity-80 top-32 space-y-0 md:space-y-3 md:right-[250px] lg:right-[720px] text-center w-[450px]">
+          <div className="absolute text-white opacity-80 top-32 space-y-0 md:space-y-3 md:right-[250px] lg:right-[420px] text-center w-[450px]">
             <h2 className="text-6xl font-semibold">{slide.spotName}</h2>
             <h3 className="text-4xl font-medium">{slide.country}</h3>
             <h3 className="flex items-center justify-center mx-auto gap-1 text-xl">

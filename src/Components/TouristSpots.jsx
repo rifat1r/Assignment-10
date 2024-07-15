@@ -4,7 +4,9 @@ import SpotCard from "./SpotCard";
 const TouristSpots = () => {
   const [spots, setSpots] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/touristspots/email/rifatul564@gmail.com")
+    fetch(
+      "https://assignment-10-server-eight-gold.vercel.app/touristspots/email/rifatul564@gmail.com"
+    )
       .then((res) => res.json())
       .then((data) => setSpots(data));
   }, []);

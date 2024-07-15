@@ -1,10 +1,9 @@
-import { useLoaderData } from "react-router-dom";
 import AllSpotCard from "./AllSpotCard";
 import { useEffect, useState } from "react";
 
 const AllSpots = () => {
   const [allSpots, setAllSpots] = useState(
-    "http://localhost:5000/touristspots"
+    "https://assignment-10-server-eight-gold.vercel.app/touristspots"
   );
   const [spots, setSpots] = useState([]);
   useEffect(() => {
@@ -45,7 +44,9 @@ const AllSpots = () => {
             <li>
               <a
                 onClick={() =>
-                  setAllSpots("http://localhost:5000/touristspots/costasc")
+                  setAllSpots(
+                    "https://assignment-10-server-eight-gold.vercel.app/touristspots/costasc"
+                  )
                 }
               >
                 ascending
@@ -54,7 +55,9 @@ const AllSpots = () => {
             <li>
               <a
                 onClick={() => {
-                  setAllSpots("http://localhost:5000/touristspots/cost");
+                  setAllSpots(
+                    "https://assignment-10-server-eight-gold.vercel.app/touristspots/cost"
+                  );
                 }}
               >
                 descending

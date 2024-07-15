@@ -48,13 +48,16 @@ const UpdateSpot = () => {
       photo,
     };
     console.log(newSpot);
-    fetch(`http://localhost:5000/touristspots/id/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newSpot),
-    })
+    fetch(
+      `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newSpot),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

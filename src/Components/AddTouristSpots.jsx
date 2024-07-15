@@ -31,7 +31,7 @@ const AddTouristSpots = () => {
       photo,
     };
     console.log(newSpot);
-    fetch("http://localhost:5000/touristspots", {
+    fetch("https://assignment-10-server-eight-gold.vercel.app/touristspots", {
       method: "POST",
       headers: {
         "content-type": "application/json",

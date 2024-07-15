@@ -37,7 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/allspots",
         element: <AllSpots></AllSpots>,
-        loader: () => fetch("http://localhost:5000/touristspots"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-eight-gold.vercel.app/touristspots"
+          ),
       },
       {
         path: "/register",
@@ -63,7 +66,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/touristspots/id/${params.id}`),
+          fetch(
+            `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${params.id}`
+          ),
       },
       {
         path: "/spotDetails/:id",
@@ -73,7 +78,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/touristspots/id/${params.id}`),
+          fetch(
+            `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${params.id}`
+          ),
       },
       {
         path: "/addActivity/:id",
@@ -83,7 +90,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/touristspots/id/${params.id}`),
+          fetch(
+            `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${params.id}`
+          ),
       },
     ],
   },

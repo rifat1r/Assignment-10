@@ -4,14 +4,31 @@ import ActivityCard from "./ActivityCard";
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   useEffect(() => {
-    fetch("activity.json")
+    fetch("http://localhost:5000/activity")
       .then((res) => res.json())
       .then((data) => setActivities(data));
   }, []);
   return (
     <div className="">
-      {activities.map((activity) => (
-        <ActivityCard key={activity.id} activity={activity}></ActivityCard>
+      <div className="text-center my-10">
+        <h2 className="text-4xl font-semibold">
+          Activities Added by Our Community
+        </h2>
+        <p className="text-xl font-medium text-gray-400 mt-3">
+          Find the best activities for each spot, curated by our travel
+          community.
+        </p>
+        <div className="w-2/3 mx-auto mt-2">
+          <hr />
+          <hr />
+          <hr />
+        </div>
+      </div>
+      {activities.map((activityObj) => (
+        <ActivityCard
+          key={activityObj._id}
+          activityObj={activityObj}
+        ></ActivityCard>
       ))}
     </div>
   );

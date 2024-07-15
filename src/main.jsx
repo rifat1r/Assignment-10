@@ -14,6 +14,7 @@ import PrivateRoute from "./Components/PrivateRoute.jsx";
 import UpdateSpot from "./Components/UpdateSpot.jsx";
 import SpotDetails from "./Components/SpotDetails.jsx";
 import ErrorPage from "./Components/ErrorPage.jsx";
+import AddActivity from "./Components/AddActivity.jsx";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <SpotDetails></SpotDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/touristspots/id/${params.id}`),
+      },
+      {
+        path: "/addActivity/:id",
+        element: (
+          <PrivateRoute>
+            <AddActivity></AddActivity>
           </PrivateRoute>
         ),
         loader: ({ params }) =>

@@ -54,6 +54,7 @@ const MyList = () => {
             <th>Average Cost </th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         {spots.map((spot) => (
@@ -63,6 +64,12 @@ const MyList = () => {
               <td>{spot.spotName}</td>
               <td>{spot.country}</td>
               <td>{spot.cost}</td>
+              <Link
+                className="text-green-500 font-medium mr-10 "
+                to={`/addActivity/${spot._id}`}
+              >
+                <td className="">Add Activity</td>
+              </Link>
               <Link to={`/touristspots/id/${spot._id}`}>
                 <td className="btn mr-16">EDIT</td>
               </Link>

@@ -4,11 +4,9 @@ import Footer from "./Components/Footer";
 
 const App = () => {
   return (
-    <div>
-      <div className="max-w-7xl mx-auto">
-        <Headers></Headers>
-        <Outlet></Outlet>
-      </div>
+    <div className="max-w-7xl mx-auto">
+      <Headers></Headers>
+      <Outlet></Outlet>
       <Footer></Footer>
     </div>
   );

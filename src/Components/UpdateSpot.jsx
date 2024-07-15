@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateSpot = () => {
   const spot = useLoaderData();
+  const navigate = useNavigate();
   console.log(spot);
   const {
     _id,
@@ -65,6 +66,7 @@ const UpdateSpot = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/mylist");
         }
       });
   };

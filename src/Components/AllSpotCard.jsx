@@ -34,6 +34,7 @@ const AllSpotCard = ({ spot }) => {
       <div className="card-body">
         <div className="flex justify-between gap-20 -mt-4 items-baseline">
           <h2 className="text-2xl font-semibold">{spotName}</h2>
+
           <p className="flex items-center text-xl gap-1 text-gray-500">
             <FaLocationDot />
             {location}
@@ -45,7 +46,7 @@ const AllSpotCard = ({ spot }) => {
       </div>
       <div className="flex justify-end gap-3 mr-10 mt-3  py-5">
         <span className="bg-orange-500 px-4 py-0 text-white opacity-80 rounded-xl">
-          {cost}
+          $ {cost}
         </span>
         <span className="bg-orange-500 px-4 py-0 text-white opacity-80 rounded-xl">
           {seasonality}

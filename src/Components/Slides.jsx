@@ -18,7 +18,7 @@ const Slides = () => {
   const [slides, setSlides] = useState([]);
   useEffect(() => {
     fetch(
-      "https://assignment-10-server-eight-gold.vercel.app/touristspots/email/rifatul564@gmail.com"
+      "https://assignment-10-server-swart-three.vercel.app/touristspots/email/rifatul564@gmail.com"
     )
       .then((res) => res.json())
       .then((data) => setSlides(data));

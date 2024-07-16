@@ -9,7 +9,7 @@ const MyList = () => {
 
   useEffect(() => {
     fetch(
-      `https://assignment-10-server-eight-gold.vercel.app/touristspots/email/${user.email}`
+      `https://assignment-10-server-swart-three.vercel.app/touristspots/email/${user.email}`
     )
       .then((res) => res.json())
       .then((data) => setSpots(data));
@@ -27,7 +27,7 @@ const MyList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${id}`,
+          `https://assignment-10-server-swart-three.vercel.app/touristspots/id/${id}`,
           {
             method: "DELETE",
           }

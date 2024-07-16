@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const AllSpots = () => {
   const [allSpots, setAllSpots] = useState(
-    "https://assignment-10-server-eight-gold.vercel.app/touristspots"
+    "https://assignment-10-server-swart-three.vercel.app/touristspots"
   );
   const [spots, setSpots] = useState([]);
   useEffect(() => {
@@ -45,7 +45,7 @@ const AllSpots = () => {
               <a
                 onClick={() =>
                   setAllSpots(
-                    "https://assignment-10-server-eight-gold.vercel.app/touristspots/costasc"
+                    "https://assignment-10-server-swart-three.vercel.app/touristspots/costasc"
                   )
                 }
               >
@@ -56,7 +56,7 @@ const AllSpots = () => {
               <a
                 onClick={() => {
                   setAllSpots(
-                    "https://assignment-10-server-eight-gold.vercel.app/touristspots/cost"
+                    "https://assignment-10-server-swart-three.vercel.app/touristspots/cost"
                   );
                 }}
               >

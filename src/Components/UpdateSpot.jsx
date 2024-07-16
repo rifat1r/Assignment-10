@@ -49,7 +49,7 @@ const UpdateSpot = () => {
     };
     console.log(newSpot);
     fetch(
-      `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${_id}`,
+      `https://assignment-10-server-swart-three.vercel.app/touristspots/id/${_id}`,
       {
         method: "PUT",
         headers: {

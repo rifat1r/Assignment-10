@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <AllSpots></AllSpots>,
         loader: () =>
           fetch(
-            "https://assignment-10-server-eight-gold.vercel.app/touristspots"
+            "https://assignment-10-server-swart-three.vercel.app/touristspots"
           ),
       },
       {
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${params.id}`
+            `https://assignment-10-server-swart-three.vercel.app/touristspots/id/${params.id}`
           ),
       },
       {
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${params.id}`
+            `https://assignment-10-server-swart-three.vercel.app/touristspots/id/${params.id}`
           ),
       },
       {
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://assignment-10-server-eight-gold.vercel.app/touristspots/id/${params.id}`
+            `https://assignment-10-server-swart-three.vercel.app/touristspots/id/${params.id}`
           ),
       },
     ],

@@ -4,7 +4,7 @@ import ActivityCard from "./ActivityCard";
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   useEffect(() => {
-    fetch("https://assignment-10-server-eight-gold.vercel.app/activity")
+    fetch("https://assignment-10-server-swart-three.vercel.app/activity")
       .then((res) => res.json())
       .then((data) => setActivities(data));
   }, []);

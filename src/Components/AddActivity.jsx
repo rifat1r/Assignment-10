@@ -25,7 +25,7 @@ const AddActivity = () => {
       adder,
     };
     console.log(obj);
-    fetch("https://assignment-10-server-eight-gold.vercel.app/activity", {
+    fetch("https://assignment-10-server-swart-three.vercel.app/activity", {
       method: "POST",
       headers: {
         "content-type": "application/json",
